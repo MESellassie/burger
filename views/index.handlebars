@@ -33,7 +33,7 @@
                 <div class="card-header bg-danger text-white">
                     Burgers
                 </div>
-                <!--Div to hold burgers that have not been devoured yet-->
+                <!--Burgers to be devoured-->
                 <div class="card-body">
                     <ul>
                         {{#each burgers}}
@@ -60,7 +60,7 @@
                 <div class="card-header bg-danger text-white" id="devoured-card-header">
                     Devoured burgers
                 </div>
-                <!--When a burger has been devoured, put burger here-->
+                <!--Devoured burgers go here-->
                 <div class="card-body">
                     {{#each burgers}}
                     {{#if this.devoured}}

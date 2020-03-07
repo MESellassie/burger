@@ -1,6 +1,7 @@
 // Dependencies
 let express = require("express");
 let bodyParser = require("body-parser");
+let methodOverride = require("method-override");
 
 let PORT = process.env.PORT || 3000;
 
@@ -14,6 +15,9 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 //Parse application/json
 app.use(bodyParser.json());
+
+// Override with POST having ?_method=DELETE
+app.use(methodOverride("_method"));
 
 // Parse request body as JSON
 app.use(express.urlencoded({ extended: true }));
