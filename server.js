@@ -1,12 +1,19 @@
 // Dependencies
 let express = require("express");
+let bodyParser = require("body-parser");
 
 let PORT = process.env.PORT || 3000;
 
 let app = express();
 
 // Serve static content for the app from the "public" directory in the application directory.
-app.use(express.static("public"));
+app.use(express.static(__dirname + "public"));
+
+//Parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: false }));
+
+//Parse application/json
+app.use(bodyParser.json());
 
 // Parse request body as JSON
 app.use(express.urlencoded({ extended: true }));
