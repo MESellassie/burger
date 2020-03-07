@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+<link rel="stylesheet" type="text/css" href="/public/assets/css/burger_style..css">
+    <title>Welcome to Good Burger, Home of the Good Burger, Can I take Your Order?</title>
+</head>
+<body>
+
+    <div class="container">
+        <!--Jumbotron-->
+        <div class="jumbotron text-center bg-primary text-white">
+          <h1 class="display-4" id="app-title">Good Burger! <img src="/assets/img/cheeseburger.png"></h1>
+          <p class="lead">Welcome to Good Burger, Home of the Good Burger, Can I take your order?</p>
+        </div>
+      
+        <div class="row">
+          <div class="col-md-12">
+            <div class="card border border-primary">
+              <div class="card-header bg-primary text-white">
+               Can I take your order?
+              </div>
+              <!--Create/add burger form-->
+              <div class="card-body">
+                <form class="create-form">
+                  <div class="form-group">
+                    <label for="burger">Place order here:</label>
+                    <input type="text" class="form-control" id="burgerToGo" placeholder="">
+                  </div>
+                  <button class="btn btn-primary" type="submit">Place order</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      
+      
+        <div class="row mt-4">
+          <div class="col-md-6 mt-4">
+            <div class="card border border-primary">
+              <div class="card-header bg-primary text-white">
+               Burgers
+              </div>
+              <!--Div to hold burgers that have not been devoured yet-->
+              <div class="card-body">
+                    {{#each burgers}}
+                      {{#unless devoured}}
+                        {{> burgers/burger-block devour=false}}
+                      {{/unless}}
+                    {{/each}}
+              </div>
+            </div>
+          </div>
+      
+          <div class="col-md-6 mt-4">
+            <div class="card devoured-card">
+              <div class="card-header text-white" id="devoured-card-header">
+               Devoured burgers
+              </div>
+              <!--When a burger has been devoured, put burger here-->
+              <div class="card-body">
+                {{#each burgers}}
+                    {{#if devoured}}
+                      {{> burgers/burger-devoured devour=true}}
+                    {{/if}}
+                {{/each}}
+              </div>
+            </div>
+          </div>
+        </div>
+      
+        <!--Footer-->
+        <div class="row mt-5">
+          <div class="col-md-12">
+            <div class="card footer">
+              <div class="card-body footer-body text-white">
+                <h5 class="card-title text-white">Awesome Burger</h5>
+                <p class="card-text">Welcome to Awesome Burger. Home of the Awesome Burger.</p>
+                <a href="https://github.com/philipstubbs13/burger" class="btn btn-primary mr-2" target="_blank">GitHub Repo</a>
+                <a href="https://www.linkedin.com/in/philipjstubbs/" class="btn btn-primary" target="_blank">LinkedIn</a>
+                <br>
+                <br>
+                <small>Background photo by Gianna Ciaramello on Unsplash</small>
+              </div>
+            </div>
+          </div>
+      </div>
+
+
+
+</body>
+</html>
